@@ -1,0 +1,6 @@
+label: dbt
+data_components:
+- dbt
+script: echo 'Hello world'
+timeout: 0
+max_retries: 0
