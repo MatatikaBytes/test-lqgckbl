@@ -1,3 +1,4 @@
+version: pipelines/v0.1
 label: dbt
 data_components:
 - dbt
