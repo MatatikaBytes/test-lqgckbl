@@ -13,3 +13,4 @@ plugin_paths:
 - plugins
 data_store_paths:
 - datastores
+default_data_store: Warehouse
