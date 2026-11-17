@@ -1,7 +1,8 @@
 version: pipelines/v0.1
+type: WORKFLOW
 label: dbt
+timeout: 3600
+max_retries: 0
+script: "echo 'Hello world'\nsource "
 data_components:
 - dbt
-script: echo 'Hello world'
-timeout: 0
-max_retries: 0

@@ -5,3 +5,43 @@ environments:
 - name: dev
 - name: staging
 - name: prod
+plugins:
+  loaders:
+  - name: target-postgres
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/pipelinewise-target-postgres@v0.2.0
+  transformers:
+  - name: dbt
+    variant: dbt-labs
+    pip_url: dbt-core~=1.7.0 dbt-postgres~=1.7.0 dbt-snowflake~=1.7.0 dbt-bigquery~=1.7.0 certifi==2025.1.31
+    requires:
+      files:
+      - name: files-dbt
+        variant: matatika
+  files:
+  - name: analyze-dbt-models
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/analyze-dbt-models@v0.4.0
+    requires:
+      transformers:
+      - name: dbt
+        variant: dbt-labs
+      utilities:
+      - name: dbt-artifacts
+        variant: matatika
+      - name: matatika
+        variant: matatika
+  - name: files-dbt
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/files-dbt@v1.3
+    requires:
+      transformers:
+      - name: dbt
+        variant: dbt-labs
+  utilities:
+  - name: matatika
+    variant: matatika
+    pip_url: matatika~=1.17.1
+  - name: dbt-artifacts
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/dbt-artifacts-ext.git@v0.1.0
