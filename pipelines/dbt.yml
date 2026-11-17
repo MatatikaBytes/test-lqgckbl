@@ -3,6 +3,8 @@ type: WORKFLOW
 label: dbt
 timeout: 3600
 max_retries: 0
-script: "echo 'Hello world'\nsource "
+script: |-
+  echo 'Hello world'
+  hello.sh
 data_components:
 - dbt
